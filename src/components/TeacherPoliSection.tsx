@@ -1,5 +1,6 @@
 import React from 'react';
 import { ExternalLink, Star, ArrowRight } from 'lucide-react';
+import SupportButton from './SupportButton';
 
 export default function TeacherPoliSection() {
   return (
@@ -104,6 +105,16 @@ export default function TeacherPoliSection() {
           </div>
         </div>
       </div>
+
+      {/* Support Section */}
+      <div className="mt-8 bg-purple-50 rounded-lg p-6 text-center">
+        <h3 className="text-lg font-semibold text-gray-900 mb-2">Dificuldades para acessar?</h3>
+        <p className="text-gray-600 mb-4">Estamos aqui para te ajudar a começar sua jornada</p>
+        <SupportButton position="inline" variant="primary" />
+      </div>
+
+      {/* Fixed Support Button */}
+      <SupportButton />
     </div>
   );
 }
