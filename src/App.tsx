@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import { User } from './types';
+import WelcomeModal from './components/WelcomeModal';
 
 // Components
 import Header from './components/Header';
@@ -24,6 +25,14 @@ export default function App() {
   const [activeTab, setActiveTab] = useState('onboarding');
   const [authStep, setAuthStep] = useState<AuthStep>('login');
   const [currentEmail, setCurrentEmail] = useState('');
+  const [showWelcomeModal, setShowWelcomeModal] = useState(false);
+
+  // Show welcome modal for first-time users
+  React.useEffect(() => {
+    if (user && user.firstAccess && authStep === 'authenticated') {
+      setShowWelcomeModal(true);
+    }
+  }, [user, authStep]);
 
   const handleLogin = async (email: string, password?: string) => {
     // Simular login bem-sucedido
@@ -85,7 +94,18 @@ export default function App() {
     if (user) {
       setUser({
         ...user,
-        hasGeneratedPlan: true
+        hasGeneratedPlan: true,
+        firstAccess: false
+      });
+    }
+  };
+
+  const handleWelcomeModalClose = () => {
+    setShowWelcomeModal(false);
+    if (user) {
+      setUser({
+        ...user,
+        firstAccess: false
       });
     }
   };
@@ -95,9 +115,12 @@ export default function App() {
     if (!user) return [];
     
     const locked = [];
+    
+    // If user hasn't generated a plan yet, lock everything except onboarding and ai-assistant
     if (!user.hasGeneratedPlan) {
-      locked.push('teacher-poli');
+      locked.push('teacher-poli', 'resources', 'community', 'settings');
     }
+    
     return locked;
   };
 
@@ -133,24 +156,33 @@ export default function App() {
 
   // Main application
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      <Header userName={user.name} onLogout={handleLogout} />
-      <Navigation 
-        activeTab={activeTab} 
-        onTabChange={setActiveTab}
-        lockedTabs={getLockedTabs()}
+    <>
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <Header userName={user.name} onLogout={handleLogout} />
+        <Navigation 
+          activeTab={activeTab} 
+          onTabChange={setActiveTab}
+          lockedTabs={getLockedTabs()}
+        />
+        
+        <main className="pb-8">
+          {activeTab === 'onboarding' && <OnboardingSection />}
+          {activeTab === 'ai-assistant' && (
+            <AIAssistantSection onPlanGenerated={handlePlanGenerated} />
+          )}
+          {activeTab === 'teacher-poli' && <TeacherPoliSection />}
+          {activeTab === 'resources' && <ResourcesSection />}
+          {activeTab === 'community' && <CommunitySection />}
+          {activeTab === 'settings' && <SettingsSection />}
+        </main>
+      </div>
+
+      {/* Welcome Modal */}
+      <WelcomeModal
+        isOpen={showWelcomeModal}
+        onClose={handleWelcomeModalClose}
+        userName={user.name}
       />
-      
-      <main className="pb-8">
-        {activeTab === 'onboarding' && <OnboardingSection />}
-        {activeTab === 'ai-assistant' && (
-          <AIAssistantSection onPlanGenerated={handlePlanGenerated} />
-        )}
-        {activeTab === 'teacher-poli' && <TeacherPoliSection />}
-        {activeTab === 'resources' && <ResourcesSection />}
-        {activeTab === 'community' && <CommunitySection />}
-        {activeTab === 'settings' && <SettingsSection />}
-      </main>
-    </div>
+    </>
   );
 }

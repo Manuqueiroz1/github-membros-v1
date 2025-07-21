@@ -83,6 +83,11 @@ export default function AIAssistantSection({ onPlanGenerated }: AIAssistantSecti
       // Notify parent component that plan was generated
       if (onPlanGenerated) {
         onPlanGenerated();
+        
+        // Show success message
+        setTimeout(() => {
+          alert('🎉 Parabéns! Seu plano foi gerado com sucesso! Agora você tem acesso completo a todos os recursos da plataforma.');
+        }, 500);
       }
       
       setIsLoading(false);

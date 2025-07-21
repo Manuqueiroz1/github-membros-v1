@@ -37,6 +37,7 @@ export default function Navigation({ activeTab, onTabChange, lockedTabs = [] }: 
                     : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600'
                 }`}
                 disabled={isLocked}
+                title={isLocked ? 'Complete o onboarding para desbloquear' : ''}
               >
                 {isLocked ? (
                   <Lock className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
@@ -44,6 +45,9 @@ export default function Navigation({ activeTab, onTabChange, lockedTabs = [] }: 
                   <Icon className="h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
                 )}
                 <span className="truncate">{tab.label}</span>
+                {isLocked && (
+                  <span className="ml-1 text-xs opacity-75">🔒</span>
+                )}
               </button>
             );
           })}
