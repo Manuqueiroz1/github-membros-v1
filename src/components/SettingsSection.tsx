@@ -212,14 +212,6 @@ export default function SettingsSection() {
             <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Termos de Uso</span>
             <span className="text-gray-400 dark:text-gray-500">→</span>
           </button>
-          <button className="flex items-center justify-between p-3 rounded-lg border border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 transition-colors">
-            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Exportar dados</span>
-            <span className="text-gray-400 dark:text-gray-500">→</span>
-          </button>
-          <button className="flex items-center justify-between p-3 rounded-lg border border-red-200 dark:border-red-800 hover:border-red-300 dark:hover:border-red-700 transition-colors text-red-600 dark:text-red-400">
-            <span className="text-sm font-medium">Excluir conta</span>
-            <span className="text-red-400 dark:text-red-500">→</span>
-          </button>
         </div>
       </div>
 

@@ -32,7 +32,7 @@ export default function App() {
 
   // Show welcome modal for first-time users
   React.useEffect(() => {
-    if (user && user.firstAccess && authStep === 'authenticated') {
+    if (user && user.firstAccess && !user.hasGeneratedPlan && authStep === 'authenticated') {
       // Show welcome modal after a short delay to ensure smooth transition
       setTimeout(() => {
         setShowWelcomeModal(true);
@@ -48,7 +48,7 @@ export default function App() {
       isVerified: true,
       hasPassword: true,
       hasGeneratedPlan: false,
-      firstAccess: true
+      firstAccess: !localStorage.getItem(`user_completed_${email}`) // Only first access if never completed before
     };
     
     setUser(userData);
@@ -91,6 +91,9 @@ export default function App() {
 
   const handlePlanGenerated = () => {
     if (user) {
+      // Mark as completed in localStorage
+      localStorage.setItem(`user_completed_${user.email}`, 'true');
+      
       setUser({
         ...user,
         hasGeneratedPlan: true,
@@ -101,7 +104,6 @@ export default function App() {
 
   const handleWelcomeModalClose = () => {
     setShowWelcomeModal(false);
-    // Don't set firstAccess to false here - only after plan is generated
   };
 
   const handleLockedTabClick = (tabId: string) => {
