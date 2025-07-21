@@ -44,79 +44,64 @@ export default function TeacherPoliSection() {
         </div>
       </div>
 
-      {/* Quick Access */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 sm:p-8">
-        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 text-center">Acesso Rápido</h3>
-        <p className="text-sm sm:text-base text-gray-600 text-center mb-6 sm:mb-8">Escolha como quer praticar hoje</p>
+      {/* Access Section */}
+      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 sm:p-8 mb-8">
+        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 text-center">Acesse a Teacher Poli</h3>
+        <p className="text-sm sm:text-base text-gray-600 text-center mb-6 sm:mb-8">Sua assistente de IA está esperando por você</p>
         
-        {/* Main Login Button */}
-        <div className="text-center mb-6 sm:mb-8">
+        <div className="text-center">
           <a
             href="https://app.teacherpoli.com/login"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-6 sm:px-12 py-4 sm:py-6 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold text-lg sm:text-xl rounded-2xl hover:from-purple-700 hover:to-pink-700 transition-all shadow-2xl transform hover:scale-105"
+            className="inline-flex items-center justify-center px-8 sm:px-16 py-4 sm:py-6 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold text-lg sm:text-2xl rounded-2xl hover:from-purple-700 hover:to-pink-700 transition-all shadow-2xl transform hover:scale-105"
           >
-            <ExternalLink className="mr-2 sm:mr-3 h-5 w-5 sm:h-6 sm:w-6" />
+            <ExternalLink className="mr-3 sm:mr-4 h-6 w-6 sm:h-8 sm:w-8" />
             <span className="hidden sm:inline">Entrar na Teacher Poli</span>
             <span className="sm:hidden">Entrar</span>
           </a>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+        <div className="mt-8 text-center">
+          <p className="text-sm text-gray-500 mb-4">Precisa de ajuda para acessar?</p>
           <a
-            href="https://app.teacherpoli.com/login"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center p-4 sm:p-6 border-2 border-purple-200 rounded-lg hover:border-purple-400 hover:bg-purple-50 transition-colors group"
+            href="mailto:suporte@teacherpoli.com"
+            className="inline-flex items-center px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
           >
-            <div className="text-center">
-              <ExternalLink className="h-6 w-6 sm:h-8 sm:w-8 text-purple-600 mx-auto mb-2 sm:mb-3 group-hover:scale-110 transition-transform" />
-              <h4 className="text-sm sm:text-base font-semibold text-gray-900 mb-1">Input</h4>
-              <p className="text-xs sm:text-sm text-gray-600">Pratique compreensão</p>
-            </div>
-          </a>
-          
-          <a
-            href="https://app.teacherpoli.com/login"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center p-4 sm:p-6 border-2 border-purple-200 rounded-lg hover:border-purple-400 hover:bg-purple-50 transition-colors group"
-          >
-            <div className="text-center">
-              <ExternalLink className="h-6 w-6 sm:h-8 sm:w-8 text-purple-600 mx-auto mb-2 sm:mb-3 group-hover:scale-110 transition-transform" />
-              <h4 className="text-sm sm:text-base font-semibold text-gray-900 mb-1">Writing</h4>
-              <p className="text-xs sm:text-sm text-gray-600">Melhore sua escrita</p>
-            </div>
-          </a>
-          
-          <a
-            href="https://app.teacherpoli.com/login"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center p-4 sm:p-6 border-2 border-purple-200 rounded-lg hover:border-purple-400 hover:bg-purple-50 transition-colors group"
-          >
-            <div className="text-center">
-              <ExternalLink className="h-6 w-6 sm:h-8 sm:w-8 text-purple-600 mx-auto mb-2 sm:mb-3 group-hover:scale-110 transition-transform" />
-              <h4 className="text-sm sm:text-base font-semibold text-gray-900 mb-1">Role Play</h4>
-              <p className="text-xs sm:text-sm text-gray-600">Simule conversas</p>
-            </div>
+            <span className="mr-2">📧</span>
+            Falar com Suporte
           </a>
         </div>
+      </div>
+
+      {/* Features */}
+      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 sm:p-8">
+        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 text-center">O que você pode fazer na Teacher Poli</h3>
         
-        <div className="grid grid-cols-1 gap-4 sm:gap-6 mt-4 sm:mt-6 max-w-md mx-auto">
-          <a
-            href="https://app.teacherpoli.com/login"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center p-4 sm:p-6 border-2 border-purple-200 rounded-lg hover:border-purple-400 hover:bg-purple-50 transition-colors group"
-          >
-            <div className="text-center">
-              <ExternalLink className="h-6 w-6 sm:h-8 sm:w-8 text-purple-600 mx-auto mb-2 sm:mb-3 group-hover:scale-110 transition-transform" />
-              <h4 className="text-sm sm:text-base font-semibold text-gray-900 mb-1">Speaking</h4>
-              <p className="text-xs sm:text-sm text-gray-600">Pratique pronúncia</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="text-center p-6 bg-purple-50 rounded-lg">
+            <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span className="text-2xl">🎯</span>
             </div>
-          </a>
+            <h4 className="text-lg font-semibold text-gray-900 mb-2">Aprendizado Personalizado</h4>
+            <p className="text-sm text-gray-600">A IA adapta as lições ao seu nível e ritmo de aprendizado</p>
+          </div>
+          
+          <div className="text-center p-6 bg-blue-50 rounded-lg">
+            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span className="text-2xl">💬</span>
+            </div>
+            <h4 className="text-lg font-semibold text-gray-900 mb-2">Conversação Natural</h4>
+            <p className="text-sm text-gray-600">Pratique conversas reais com feedback instantâneo</p>
+          </div>
+          
+          <div className="text-center p-6 bg-green-50 rounded-lg">
+            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span className="text-2xl">📈</span>
+            </div>
+            <h4 className="text-lg font-semibold text-gray-900 mb-2">Progresso em Tempo Real</h4>
+            <p className="text-sm text-gray-600">Acompanhe sua evolução com relatórios detalhados</p>
+          </div>
         </div>
       </div>
     </div>

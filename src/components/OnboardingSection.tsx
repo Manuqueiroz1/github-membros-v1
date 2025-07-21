@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Play, CheckCircle, Clock, Lock } from 'lucide-react';
+import SupportButton from './SupportButton';
 
 interface Video {
   id: string;
@@ -159,6 +160,16 @@ export default function OnboardingSection() {
           </div>
         </div>
       </div>
+
+      {/* Support Section */}
+      <div className="mt-8 bg-purple-50 rounded-lg p-6 text-center">
+        <h3 className="text-lg font-semibold text-gray-900 mb-2">Precisa de ajuda?</h3>
+        <p className="text-gray-600 mb-4">Nossa equipe está aqui para te apoiar em cada passo</p>
+        <SupportButton position="inline" variant="primary" />
+      </div>
+
+      {/* Fixed Support Button */}
+      <SupportButton />
     </div>
   );
 }

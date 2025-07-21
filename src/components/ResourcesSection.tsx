@@ -1,5 +1,6 @@
 import React from 'react';
 import { Download, FileText, Headphones, Video, BookOpen, Star, Play } from 'lucide-react';
+import SupportButton from './SupportButton';
 
 interface Resource {
   id: string;
@@ -191,6 +192,16 @@ export default function ResourcesSection() {
           </div>
         </div>
       </div>
+
+      {/* Support Section */}
+      <div className="mt-8 bg-green-50 rounded-lg p-6 text-center">
+        <h3 className="text-lg font-semibold text-gray-900 mb-2">Problemas com downloads?</h3>
+        <p className="text-gray-600 mb-4">Entre em contato para resolver rapidamente</p>
+        <SupportButton position="inline" variant="primary" />
+      </div>
+
+      {/* Fixed Support Button */}
+      <SupportButton />
     </div>
   );
 }

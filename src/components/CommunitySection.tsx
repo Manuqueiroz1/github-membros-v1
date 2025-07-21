@@ -1,5 +1,6 @@
 import React from 'react';
 import { MessageCircle, Users, ExternalLink, Phone, Calendar } from 'lucide-react';
+import SupportButton from './SupportButton';
 
 export default function CommunitySection() {
   return (
@@ -123,6 +124,16 @@ export default function CommunitySection() {
           </div>
         </div>
       </div>
+
+      {/* Support Section */}
+      <div className="mt-8 bg-yellow-50 rounded-lg p-6 text-center">
+        <h3 className="text-lg font-semibold text-gray-900 mb-2">Não consegue acessar a comunidade?</h3>
+        <p className="text-gray-600 mb-4">Vamos te ajudar a se conectar com outros estudantes</p>
+        <SupportButton position="inline" variant="primary" />
+      </div>
+
+      {/* Fixed Support Button */}
+      <SupportButton />
     </div>
   );
 }

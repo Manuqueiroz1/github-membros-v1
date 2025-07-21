@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Brain, Send, User, Bot, Sparkles, BookOpen, Target, Clock, Download, FileText } from 'lucide-react';
+import SupportButton from './SupportButton';
 
 interface Message {
   id: string;
@@ -255,6 +256,16 @@ export default function AIAssistantSection({ onPlanGenerated }: AIAssistantSecti
           </div>
         </div>
       </div>
+
+      {/* Support Section */}
+      <div className="mt-8 bg-blue-50 rounded-lg p-6 text-center">
+        <h3 className="text-lg font-semibold text-gray-900 mb-2">Dúvidas sobre seu plano?</h3>
+        <p className="text-gray-600 mb-4">Fale conosco para otimizar seus estudos</p>
+        <SupportButton position="inline" variant="primary" />
+      </div>
+
+      {/* Fixed Support Button */}
+      <SupportButton />
     </div>
   );
 }
