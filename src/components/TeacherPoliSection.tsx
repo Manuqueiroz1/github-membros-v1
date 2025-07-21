@@ -75,37 +75,6 @@ export default function TeacherPoliSection() {
         </div>
       </div>
 
-      {/* Features */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 sm:p-8">
-        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 text-center">O que você pode fazer na Teacher Poli</h3>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="text-center p-6 bg-purple-50 rounded-lg">
-            <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl">🎯</span>
-            </div>
-            <h4 className="text-lg font-semibold text-gray-900 mb-2">Aprendizado Personalizado</h4>
-            <p className="text-sm text-gray-600">A IA adapta as lições ao seu nível e ritmo de aprendizado</p>
-          </div>
-          
-          <div className="text-center p-6 bg-blue-50 rounded-lg">
-            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl">💬</span>
-            </div>
-            <h4 className="text-lg font-semibold text-gray-900 mb-2">Conversação Natural</h4>
-            <p className="text-sm text-gray-600">Pratique conversas reais com feedback instantâneo</p>
-          </div>
-          
-          <div className="text-center p-6 bg-green-50 rounded-lg">
-            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl">📈</span>
-            </div>
-            <h4 className="text-lg font-semibold text-gray-900 mb-2">Progresso em Tempo Real</h4>
-            <p className="text-sm text-gray-600">Acompanhe sua evolução com relatórios detalhados</p>
-          </div>
-        </div>
-      </div>
-
       {/* Support Section */}
       <div className="mt-8 bg-purple-50 rounded-lg p-6 text-center">
         <h3 className="text-lg font-semibold text-gray-900 mb-2">Dificuldades para acessar?</h3>
