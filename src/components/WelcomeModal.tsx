@@ -117,16 +117,6 @@ export default function WelcomeModal({ isOpen, onClose, userName }: WelcomeModal
             </div>
           </div>
 
-          {/* Support Section */}
-          <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 mb-6 text-center">
-            <h4 className="text-base font-semibold text-gray-900 dark:text-white mb-2">
-              Precisa de ajuda durante o processo?
-            </h4>
-            <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
-              Nossa equipe está aqui para te apoiar em cada passo
-            </p>
-          </div>
-
           {/* Action Button */}
           <div className="text-center">
             <button
@@ -136,6 +126,22 @@ export default function WelcomeModal({ isOpen, onClose, userName }: WelcomeModal
               Vamos começar! 🚀
             </button>
             
+            {/* Support Section */}
+            <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 mt-6 text-center">
+              <h4 className="text-base font-semibold text-gray-900 dark:text-white mb-2">
+                Precisa de ajuda durante o processo?
+              </h4>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                Nossa equipe está aqui para te apoiar em cada passo
+              </p>
+              <SupportButton position="inline" variant="primary" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
             <div className="mt-4">
               <SupportButton position="inline" variant="secondary" />
             </div>
