@@ -30,7 +30,10 @@ export default function App() {
   // Show welcome modal for first-time users
   React.useEffect(() => {
     if (user && user.firstAccess && authStep === 'authenticated') {
-      setShowWelcomeModal(true);
+      // Show welcome modal after a short delay to ensure smooth transition
+      setTimeout(() => {
+        setShowWelcomeModal(true);
+      }, 500);
     }
   }, [user, authStep]);
 

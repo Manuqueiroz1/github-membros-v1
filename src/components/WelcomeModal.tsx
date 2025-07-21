@@ -69,24 +69,24 @@ export default function WelcomeModal({ isOpen, onClose, userName }: WelcomeModal
               </div>
               <div>
                 <h4 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                  Gere seu Plano Personalizado
+                  🎯 Gere seu Plano Personalizado (IMPORTANTE!)
                 </h4>
                 <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">
-                  Nossa IA criará um plano de estudos único, feito especialmente para você
+                  Nossa IA criará um plano único para você. **Sem isso, a Teacher Poli não consegue te ajudar da melhor forma!** É rápido e essencial para sua experiência.
                 </p>
               </div>
             </div>
 
             <div className="flex items-start space-x-4">
-              <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0">
-                <span className="text-gray-500 font-bold">3</span>
+              <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-green-600 font-bold">3</span>
               </div>
               <div>
-                <h4 className="text-base sm:text-lg font-semibold text-gray-400 dark:text-gray-500 mb-2">
-                  Acesso Completo Liberado
+                <h4 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                  🔓 Acesso Completo Liberado!
                 </h4>
-                <p className="text-gray-400 dark:text-gray-500 text-sm sm:text-base">
-                  Após gerar seu plano, você terá acesso a todos os recursos: Teacher Poli, Bônus, Comunidade e muito mais!
+                <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">
+                  **Instantaneamente** após gerar seu plano: Teacher Poli personalizada, Bônus Exclusivos, Comunidade WhatsApp e muito mais!
                 </p>
               </div>
             </div>

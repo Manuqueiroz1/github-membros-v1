@@ -18,7 +18,7 @@ export default function AIAssistantSection({ onPlanGenerated }: AIAssistantSecti
     {
       id: '1',
       type: 'assistant',
-      content: 'Olá! Sou sua assistente de IA da Teacher Poli. Estou aqui para ajudar você a criar um plano de estudos personalizado. Para começar, me conte sobre seus objetivos de aprendizado e seu nível atual.',
+      content: '👋 Olá! Sou sua assistente de IA da Teacher Poli. \n\n🎯 **Por que criar seu plano personalizado é importante?**\n\n✅ A Teacher Poli se adapta ao SEU nível e objetivos\n✅ Você terá uma experiência única, feita especialmente para você\n✅ Sem seu plano, a IA não consegue te ajudar da melhor forma\n\n💡 **Vamos começar?** Me conte sobre seus objetivos de aprendizado e seu nível atual de inglês.',
       timestamp: new Date()
     }
   ]);
@@ -86,7 +86,8 @@ export default function AIAssistantSection({ onPlanGenerated }: AIAssistantSecti
         
         // Show success message
         setTimeout(() => {
-          alert('🎉 Parabéns! Seu plano foi gerado com sucesso! Agora você tem acesso completo a todos os recursos da plataforma.');
+          const message = `🎉 **PARABÉNS!** Seu plano foi gerado com sucesso!\n\n🔓 **ACESSO LIBERADO!** Agora você tem acesso completo a:\n\n✨ Teacher Poli (sua IA personalizada)\n🎁 Bônus Exclusivos\n👥 Comunidade WhatsApp\n⚙️ Todas as configurações\n\n🚀 **Próximo passo:** Clique na aba "Teacher Poli" para começar a conversar com sua assistente personalizada!`;
+          alert(message);
         }, 500);
       }
       
