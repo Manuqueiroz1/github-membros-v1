@@ -101,12 +101,7 @@ export default function App() {
 
   const handleWelcomeModalClose = () => {
     setShowWelcomeModal(false);
-    if (user) {
-      setUser({
-        ...user,
-        firstAccess: false
-      });
-    }
+    // Don't set firstAccess to false here - only after plan is generated
   };
 
   const handleLockedTabClick = (tabId: string) => {
@@ -131,10 +126,6 @@ export default function App() {
     return [];
   };
 
-  // Authentication flow
-    // Only show modal on first access
-    if (!user?.firstAccess) return;
-    
   if (!user || authStep !== 'authenticated') {
     switch (authStep) {
       case 'password':
