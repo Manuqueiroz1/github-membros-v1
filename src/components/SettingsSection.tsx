@@ -122,6 +122,7 @@ export default function SettingsSection() {
               onClick={() => setShowPasswordModal(true)}
               className="w-full flex items-center justify-between p-3 rounded-lg border border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 transition-colors">
               <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Alterar senha</span>
+            </button>
           </div>
         </div>
 
