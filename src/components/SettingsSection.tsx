@@ -4,7 +4,6 @@ import { useTheme } from '../hooks/useTheme';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import SupportButton from './SupportButton';
 import PersonalDataModal from './PersonalDataModal';
-import PurchaseHistoryModal from './PurchaseHistoryModal';
 
 export default function SettingsSection() {
   const { theme, setTheme, actualTheme } = useTheme();
@@ -26,7 +25,6 @@ export default function SettingsSection() {
   });
 
   const [showPersonalDataModal, setShowPersonalDataModal] = React.useState(false);
-  const [showPurchaseHistoryModal, setShowPurchaseHistoryModal] = React.useState(false);
 
   const handleNotificationChange = (key: string, value: boolean) => {
     setNotifications(prev => ({
@@ -130,12 +128,6 @@ export default function SettingsSection() {
               onClick={() => setShowPersonalDataModal(true)}
               className="w-full flex items-center justify-between p-3 rounded-lg border border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 transition-colors">
               <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Dados pessoais</span>
-              <span className="text-gray-400 dark:text-gray-500">→</span>
-            </button>
-            <button 
-              onClick={() => setShowPurchaseHistoryModal(true)}
-              className="w-full flex items-center justify-between p-3 rounded-lg border border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 transition-colors">
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Histórico de compras</span>
               <span className="text-gray-400 dark:text-gray-500">→</span>
             </button>
           </div>
@@ -343,11 +335,6 @@ export default function SettingsSection() {
         onClose={() => setShowPersonalDataModal(false)}
       />
 
-      {/* Purchase History Modal */}
-      <PurchaseHistoryModal 
-        isOpen={showPurchaseHistoryModal}
-        onClose={() => setShowPurchaseHistoryModal(false)}
-      />
 
       {/* Support Section */}
       <div className="mt-8 bg-purple-50 rounded-lg p-6 text-center">
