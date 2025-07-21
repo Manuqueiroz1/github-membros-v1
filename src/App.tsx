@@ -52,19 +52,12 @@ export default function App() {
     setAuthStep('authenticated');
   };
 
-  const handleNeedVerification = (email: string) => {
-    setCurrentEmail(email);
-    setAuthStep('verification');
-  };
 
   const handleNeedPassword = (email: string) => {
     setCurrentEmail(email);
     setAuthStep('password');
   };
 
-  const handleEmailVerified = () => {
-    setAuthStep('password');
-  };
 
   const handlePasswordCreated = () => {
     // Criar usuário após senha criada
@@ -130,14 +123,6 @@ export default function App() {
   // Authentication flow
   if (!user || authStep !== 'authenticated') {
     switch (authStep) {
-      case 'verification':
-        return (
-          <EmailVerificationPage
-            email={currentEmail}
-            onVerified={handleEmailVerified}
-            onBack={handleBackToLogin}
-          />
-        );
       case 'password':
         return (
           <PasswordCreationPage
@@ -150,7 +135,6 @@ export default function App() {
         return (
           <LoginPage
             onLogin={handleLogin}
-            onNeedVerification={handleNeedVerification}
             onNeedPassword={handleNeedPassword}
           />
         );

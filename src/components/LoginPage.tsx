@@ -4,11 +4,9 @@ import { verifyHotmartPurchase, validateUserLogin } from '../utils/hotmartApi';
 
 interface LoginPageProps {
   onLogin: (email: string, password?: string) => void;
-  onNeedVerification: (email: string) => void;
   onNeedPassword: (email: string) => void;
 }
 
-export default function LoginPage({ onLogin, onNeedVerification, onNeedPassword }: LoginPageProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -37,8 +35,8 @@ export default function LoginPage({ onLogin, onNeedVerification, onNeedPassword 
       const userExists = localStorage.getItem(`user_${email}`);
       
       if (!userExists) {
-        // Primeiro acesso - precisa verificar email
-        onNeedVerification(email);
+        // Primeiro acesso - ir direto para criação de senha
+        onNeedPassword(email);
       } else {
         const userData = JSON.parse(userExists);
         if (!userData.hasPassword) {

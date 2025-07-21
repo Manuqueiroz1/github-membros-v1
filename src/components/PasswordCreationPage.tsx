@@ -90,9 +90,9 @@ export default function PasswordCreationPage({ email, onPasswordCreated, onBack 
             <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <Lock className="h-8 w-8 text-purple-600" />
             </div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">Crie sua senha</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Bem-vindo! Crie sua senha</h2>
             <p className="text-gray-600 text-sm">
-              Defina uma senha segura para sua conta
+              Como é seu primeiro acesso, defina uma senha segura para sua conta
             </p>
             <p className="text-purple-600 font-semibold text-sm">{email}</p>
           </div>
