@@ -44,7 +44,7 @@ const onboardingVideos: Video[] = [
 
 export default function OnboardingSection() {
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(onboardingVideos[0]);
-  const [showPlayer, setShowPlayer] = useState(false);
+  const [showPlayer, setShowPlayer] = useState(true);
 
   const handleVideoSelect = (video: Video) => {
     if (!video.locked) {
