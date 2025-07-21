@@ -12,6 +12,7 @@ import TeacherPoliSection from './components/TeacherPoliSection';
 import ResourcesSection from './components/ResourcesSection';
 import CommunitySection from './components/CommunitySection';
 import SettingsSection from './components/SettingsSection';
+import PlanRequiredModal from './components/PlanRequiredModal';
 
 // Auth Components
 import LoginPage from './components/LoginPage';
@@ -26,6 +27,8 @@ export default function App() {
   const [authStep, setAuthStep] = useState<AuthStep>('login');
   const [currentEmail, setCurrentEmail] = useState('');
   const [showWelcomeModal, setShowWelcomeModal] = useState(false);
+  const [showPlanRequiredModal, setShowPlanRequiredModal] = useState(false);
+  const [blockedTabName, setBlockedTabName] = useState('');
 
   // Show welcome modal for first-time users
   React.useEffect(() => {
@@ -106,6 +109,16 @@ export default function App() {
     }
   };
 
+  const handleLockedTabClick = (tabId: string) => {
+    setBlockedTabName(tabId);
+    setShowPlanRequiredModal(true);
+  };
+
+  const handleGoToPlan = () => {
+    setShowPlanRequiredModal(false);
+    setActiveTab('ai-assistant');
+  };
+
   // Determine locked tabs based on user progress
   const getLockedTabs = () => {
     if (!user) return [];
@@ -150,6 +163,7 @@ export default function App() {
           activeTab={activeTab} 
           onTabChange={setActiveTab}
           lockedTabs={getLockedTabs()}
+          onLockedTabClick={handleLockedTabClick}
         />
         
         <main className="pb-8">
@@ -169,6 +183,14 @@ export default function App() {
         isOpen={showWelcomeModal}
         onClose={handleWelcomeModalClose}
         userName={user.name}
+      />
+
+      {/* Plan Required Modal */}
+      <PlanRequiredModal
+        isOpen={showPlanRequiredModal}
+        onClose={() => setShowPlanRequiredModal(false)}
+        onGoToPlan={handleGoToPlan}
+        tabName={blockedTabName}
       />
     </>
   );
