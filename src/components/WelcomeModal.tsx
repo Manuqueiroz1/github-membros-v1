@@ -125,7 +125,6 @@ export default function WelcomeModal({ isOpen, onClose, userName }: WelcomeModal
             <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
               Nossa equipe está aqui para te apoiar em cada passo
             </p>
-            <SupportButton position="inline" variant="primary" />
           </div>
 
           {/* Action Button */}
@@ -136,6 +135,10 @@ export default function WelcomeModal({ isOpen, onClose, userName }: WelcomeModal
             >
               Vamos começar! 🚀
             </button>
+            
+            <div className="mt-4">
+              <SupportButton position="inline" variant="secondary" />
+            </div>
           </div>
         </div>
       </div>
