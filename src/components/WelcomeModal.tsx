@@ -136,9 +136,6 @@ export default function WelcomeModal({ isOpen, onClose, userName }: WelcomeModal
               </p>
               <SupportButton position="inline" variant="primary" />
             </div>
-            <div className="mt-4">
-              <SupportButton position="inline" variant="secondary" />
-            </div>
           </div>
         </div>
       </div>
