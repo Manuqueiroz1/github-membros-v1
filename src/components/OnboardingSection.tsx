@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Play, CheckCircle, Clock, Lock } from 'lucide-react';
+import { Play, CheckCircle, Clock } from 'lucide-react';
 import SupportButton from './SupportButton';
 
 interface Video {
@@ -18,7 +18,7 @@ const onboardingVideos: Video[] = [
     title: 'Bem-vindo à Teacher Poli',
     description: 'Conheça a plataforma e como ela pode transformar seu aprendizado',
     duration: '2:02',
-    completed: true,
+    completed: false,
     locked: false,
     embedUrl: 'https://www.youtube.com/embed/mttHTuEK5Xs'
   },
@@ -27,7 +27,7 @@ const onboardingVideos: Video[] = [
     title: 'Nossa Cultura e Valores',
     description: 'Conheça tudo aquilo que nos guia',
     duration: '3:33',
-    completed: true,
+    completed: false,
     locked: false,
     embedUrl: 'https://www.youtube.com/embed/-6J-tNXZkQc'
   },
@@ -45,17 +45,26 @@ const onboardingVideos: Video[] = [
 export default function OnboardingSection() {
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(onboardingVideos[0]);
   const [showPlayer, setShowPlayer] = useState(true);
+  const [videos, setVideos] = useState<Video[]>(onboardingVideos);
 
   const handleVideoSelect = (video: Video) => {
-    if (!video.locked) {
-      setSelectedVideo(video);
-      setShowPlayer(true);
-    }
+    setSelectedVideo(video);
+    setShowPlayer(true);
   };
 
   const markAsCompleted = (videoId: string) => {
-    // In a real app, this would update the backend
-    console.log(`Marking video ${videoId} as completed`);
+    setVideos(prevVideos => 
+      prevVideos.map(video => 
+        video.id === videoId 
+          ? { ...video, completed: true }
+          : video
+      )
+    );
+    
+    // Update selected video if it's the one being marked as completed
+    if (selectedVideo?.id === videoId) {
+      setSelectedVideo(prev => prev ? { ...prev, completed: true } : null);
+    }
   };
 
   return (
@@ -73,13 +82,11 @@ export default function OnboardingSection() {
               <h3 className="text-base sm:text-lg font-semibold text-gray-900">Lista de Vídeos</h3>
             </div>
             <div className="divide-y divide-gray-200">
-              {onboardingVideos.map((video) => (
+              {videos.map((video) => (
                 <div
                   key={video.id}
                   className={`p-3 sm:p-4 cursor-pointer transition-colors ${
-                    video.locked 
-                      ? 'opacity-50 cursor-not-allowed' 
-                      : 'hover:bg-gray-50'
+                    'hover:bg-gray-50'
                   } ${
                     selectedVideo?.id === video.id ? 'bg-purple-50 border-r-4 border-purple-500' : ''
                   }`}
@@ -87,12 +94,10 @@ export default function OnboardingSection() {
                 >
                   <div className="flex items-start space-x-2 sm:space-x-3">
                     <div className="flex-shrink-0 mt-1">
-                      {video.locked ? (
-                        <Lock className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
-                      ) : video.completed ? (
-                        <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-500" />
+                      {video.completed ? (
+                        <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 fill-current" />
                       ) : (
-                        <Play className="h-4 w-4 sm:h-5 sm:w-5 text-purple-500" />
+                        <Play className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
                       )}
                     </div>
                     <div className="flex-1 min-w-0">
@@ -102,9 +107,14 @@ export default function OnboardingSection() {
                       <p className="text-xs sm:text-sm text-gray-500 mt-1 line-clamp-2">
                         {video.description}
                       </p>
-                      <div className="flex items-center mt-2 text-xs text-gray-400">
+                      <div className="flex items-center justify-between mt-2">
+                        <div className="flex items-center text-xs text-gray-400">
                         <Clock className="h-3 w-3 mr-1" />
                         {video.duration}
+                        </div>
+                        {video.completed && (
+                          <span className="text-xs text-green-600 font-medium">Concluída</span>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -140,11 +150,19 @@ export default function OnboardingSection() {
                     {!selectedVideo.completed && (
                       <button
                         onClick={() => markAsCompleted(selectedVideo.id)}
-                        className="bg-purple-600 text-white px-3 sm:px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors text-xs sm:text-sm font-medium whitespace-nowrap"
+                        className="bg-green-600 text-white px-3 sm:px-4 py-2 rounded-lg hover:bg-green-700 transition-colors text-xs sm:text-sm font-medium whitespace-nowrap flex items-center"
                       >
+                        <CheckCircle className="h-4 w-4 mr-1 sm:mr-2" />
                         <span className="hidden sm:inline">Marcar como Concluído</span>
                         <span className="sm:hidden">Concluído</span>
                       </button>
+                    )}
+                    {selectedVideo.completed && (
+                      <div className="flex items-center text-green-600 font-medium text-sm">
+                        <CheckCircle className="h-4 w-4 mr-2 fill-current" />
+                        <span className="hidden sm:inline">Aula Concluída</span>
+                        <span className="sm:hidden">Concluída</span>
+                      </div>
                     )}
                   </div>
                 </div>
