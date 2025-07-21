@@ -123,17 +123,18 @@ export default function App() {
   const getLockedTabs = () => {
     if (!user) return [];
     
-    const locked = [];
-    
-    // If user hasn't generated a plan yet, lock everything except onboarding and ai-assistant
-    if (!user.hasGeneratedPlan) {
-      locked.push('teacher-poli', 'resources', 'community', 'settings');
+    // Only lock tabs on first access AND if user hasn't generated a plan yet
+    if (user.firstAccess && !user.hasGeneratedPlan) {
+      return ['teacher-poli', 'resources', 'community', 'settings'];
     }
     
-    return locked;
+    return [];
   };
 
   // Authentication flow
+    // Only show modal on first access
+    if (!user?.firstAccess) return;
+    
   if (!user || authStep !== 'authenticated') {
     switch (authStep) {
       case 'password':
