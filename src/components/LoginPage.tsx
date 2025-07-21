@@ -7,6 +7,7 @@ interface LoginPageProps {
   onNeedPassword: (email: string) => void;
 }
 
+export default function LoginPage({ onLogin, onNeedPassword }: LoginPageProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
